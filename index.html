@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MATRIX ORDER v1.00</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050b18;color:white;font-family:Arial;text-align:center}
+header{padding:25px;color:#42aaff;font-size:28px;font-weight:bold;letter-spacing:3px}
+small{color:#8abfff}
+nav{display:flex;justify-content:center;gap:12px;margin:20px}
+button{background:#102b50;color:#8fcaff;border:1px solid #167bce;padding:13px 25px;border-radius:12px;font-size:16px}
+button.active{background:#087bd4;color:white}
+#cover{margin:45px auto 20px;width:220px;height:290px;border:2px solid #28aaff;border-radius:18px;background:linear-gradient(145deg,#123e70,#061326);box-shadow:0 0 30px #087bd4;display:flex;align-items:center;justify-content:center;font-size:27px;font-weight:bold}
+#name{font-size:23px;margin:20px}
+.controls{display:flex;justify-content:center;gap:25px;margin:25px}
+footer{color:#6685a8;margin-top:55px;font-size:12px}
+</style>
+</head>
+<body>
+<header>MATRIX ORDER<br><small>VERSIÓN 1.00</small></header>
+
+<nav>
+<button class="active" onclick="tab('JUEGOS',this)">JUEGOS</button>
+<button onclick="tab('APLICACIONES',this)">APLICACIONES</button>
+</nav>
+
+<div id="cover">MATRIX</div>
+<div id="name">MIS JUEGOS</div>
+
+<div class="controls">
+<button onclick="move(-1)">❮</button>
+<button onclick="move(1)">❯</button>
+</div>
+
+<footer>MATRIX ORDER · v1.00</footer>
+
+<script>
+let section="JUEGOS",index=0;
+const items={
+JUEGOS:["GRAND THEFT AUTO","SAN ANDREAS","JUEGO 3"],
+APLICACIONES:["ITEMZFLOW","AJUSTES","APLICACIÓN 3"]
+};
+function render(){
+document.getElementById("cover").textContent=items[section][index];
+document.getElementById("name").textContent=items[section][index];
+}
+function move(n){
+index=(index+n+items[section].length)%items[section].length;
+render();
+}
+function tab(s,b){
+section=s;index=0;
+document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
+b.classList.add("active");render();
+}
+render();
+</script>
+</body>
+</html>
