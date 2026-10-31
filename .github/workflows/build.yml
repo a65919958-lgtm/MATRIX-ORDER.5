@@ -10,9 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-  image: openorbisofficial/toolchain:v0.5.1
-  options: --user root
+        container:
+      image: openorbisofficial/toolchain:v0.5.1
+      options: --user root
 
     steps:
       - name: Descargar proyecto
