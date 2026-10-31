@@ -14,8 +14,8 @@ jobs:
       - name: Descargar proyecto
         uses: actions/checkout@v4
 
-      - name: Compilar para PS4
-        uses: OpenOrbis/toolchain-action@main
+      - name: Compilar para PS4 uses: OpenOrbis/toolchain-action@main
+        
         with:
           version: v0.5.1
           command: make
